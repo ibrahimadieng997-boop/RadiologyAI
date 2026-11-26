@@ -249,10 +249,23 @@ elif page == PAGES[4]:
 
 # ------------------------------------------------------------------ AUTEUR
 elif page == PAGES[6]:
-    from PIL import Image as _I
-    _p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media", "profile.jpg")
-    ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG") if os.path.exists(_p) else \
-         assets.b64(_I.new("RGB", (520, 520), "#0e7490"), "JPEG")
+    import os
+import streamlit as st
+from PIL import Image
+
+# Chemin de la photo
+PROFILE_PATH = os.path.join(
+    os.getcwd(),
+    "media",
+    "profile.jpg"
+)
+
+# Charger et afficher la photo
+if os.path.exists(PROFILE_PATH):
+    profile_image = Image.open(PROFILE_PATH).convert("RGB")
+    st.image(profile_image, width=180)
+else:
+    st.warning("Photo de profil introuvable.")
     # from PIL import Image as _I
     # ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG")
     l, r = st.columns([1, 2.2])
