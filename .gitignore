@@ -1,0 +1,10 @@
+# Donnees patients : ne JAMAIS publier (confidentialite medicale)
+data/*
+!data/.gitkeep
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+# metriques/exemples generes depuis votre notebook : decommentez pour ne pas les publier
+# artifacts/samples/
