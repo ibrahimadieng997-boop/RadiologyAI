@@ -251,7 +251,7 @@ elif page == PAGES[4]:
 elif page == PAGES[6]:
     from PIL import Image as _I
     _p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media", "profile.jpg")
-    ph = assets.b64(_I.open(_p).convert("RGB"), "JPEG") if os.path.exists(_p) else \
+    ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG") if os.path.exists(_p) else \
          assets.b64(_I.new("RGB", (520, 520), "#0e7490"), "JPEG")
     # from PIL import Image as _I
     # ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG")
