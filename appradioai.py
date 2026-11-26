@@ -248,26 +248,8 @@ elif page == PAGES[4]:
     f.update_layout(title="Scores par classe", barmode="group", yaxis_range=[0, 1], height=380, **DARK); c6.plotly_chart(f, width="stretch")
 
 # ------------------------------------------------------------------ AUTEUR
-elif page == PAGES[6]:
-    import os
-import streamlit as st
-from PIL import Image
-
-# Chemin de la photo
-PROFILE_PATH = os.path.join(
-    os.getcwd(),
-    "media",
-    "profile.jpg"
-)
-
-# Charger et afficher la photo
-if os.path.exists(PROFILE_PATH):
-    profile_image = Image.open(PROFILE_PATH).convert("RGB")
-    st.image(profile_image, width=180)
-else:
-    st.warning("Photo de profil introuvable.")
-    # from PIL import Image as _I
-    # ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG")
+    from PIL import Image as _I
+    ph = assets.b64(_I.open("media/profile.jpg").convert("RGB"), "JPEG")
     l, r = st.columns([1, 2.2])
     with l:
         tel = f"<br>📞 {PF['tel']}" if PF.get("tel") else ""
